@@ -1,0 +1,21 @@
+<ion-view view-title="Chats">
+  <ion-content>
+    <div id="AddItem">
+        <h3>Add Item</h3>
+        <input value="" type="text" placeholder="Name of Item" ng-model="itemName">
+        <br />
+        <button ng-click="addItem()">Add to list</button>
+    </div>
+    <div id="UncheckedList">
+        <h4>Unchecked:</h4>
+        <table>
+            <tr ng-repeat="item in items" class="item-unchecked">
+                <td><b>name:</b> {{item.name}} -</td>
+                <td>
+                    <button ng-click="removeItem($index)">remove</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+  </ion-content>
+</ion-view>

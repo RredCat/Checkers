@@ -1,0 +1,14 @@
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\ApplicationIcon.png
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\Background.png
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\io.cordova.myappe2785d518e9f4f6ea03055878dd7a400.dll
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\io.cordova.myappe2785d518e9f4f6ea03055878dd7a400.pdb
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\AppManifest.xaml
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\Properties\WMAppManifest.xml
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\Bin\Debug\CordovaAppProj_Debug_AnyCPU.xap
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\App.g.cs
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\cordovalib\CordovaView.g.cs
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\MainPage.g.cs
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\io.cordova.myappe2785d518e9f4f6ea03055878dd7a400.g.resources
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\io.cordova.myappe2785d518e9f4f6ea03055878dd7a400.dll
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\io.cordova.myappe2785d518e9f4f6ea03055878dd7a400.pdb
+C:\Users\Taras\Desktop\Checker\Checker\platforms\wp8\obj\Debug\XapCacheFile.xml
