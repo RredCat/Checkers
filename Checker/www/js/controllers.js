@@ -4,16 +4,10 @@ angular.module('starter.controllers', [])
 
 .controller('ChatsCtrl', function ($scope) {
     $scope.items = [];
-    //$scope.addItem = function () {
-    //    $scope.items.push({
-    //        name: $scope.itemName
-    //    });
-
-    //    $scope.itemName = "";
-    //};
-    $scope.addItem = function (itemName) {
-        $scope.items.push({name: itemName});
-        $scope.itemName = "";
+    $scope.newItem = {name: ""};
+    $scope.addItem = function () {
+        $scope.items.push({ name: $scope.newItem.name });
+        $scope.newItem.name = "";
     };
     $scope.removeItem = function (index) {
         $scope.items.splice(index, 1);
