@@ -4,10 +4,20 @@ angular.module('starter.controllers', [])
 
 .controller('ChatsCtrl', function ($scope) {
     $scope.items = [];
-    $scope.newItem = {name: ""};
+    $scope.newItem = { name: "", monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
+
     $scope.addItem = function () {
-        $scope.items.push({ name: $scope.newItem.name });
-        $scope.newItem.name = "";
+        var name = $scope.newItem.name;
+
+        if (typeof name === 'undefined' || '' == name) return;
+
+        $scope.items.push($scope.newItem);
+        $scope.newItem = { name: "", monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
+
+        //var initWeek = function () {//Make cycle in view. But later..
+        //    return {monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
+        //};
+        // Add validation checker!! But later..
     };
     $scope.removeItem = function (index) {
         $scope.items.splice(index, 1);
