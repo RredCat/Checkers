@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('CheckCtrl', function ($scope) { })
 
-.controller('ChatsCtrl', function ($scope) {
+.controller('TasksCtrl', function ($scope, Chats) {
     $scope.items = [];
     $scope.newItem = { name: "", monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
 
