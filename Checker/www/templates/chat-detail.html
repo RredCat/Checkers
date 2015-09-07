@@ -1,9 +1,75 @@
 ﻿<ion-view view-title="{{chat.name}}">
     <ion-content class="padding">
         <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-        <p>
-            {{chat.lastText}}
-        </p>
+        <p>{{chat.lastText}}</p>
+        <input value="" type="text" placeholder="Name of Item" ng-model="chat.name" ng-required="true">
+        <ul class="list">
+            <li class="item item-toggle">
+                Monday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.monday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Tuesday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.tuesday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Wednesday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.wednesday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Thursday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.thursday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Friday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.friday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Saturday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.saturday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                Sunday
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" ng-model="chat.sunday">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+        <br />
+        <button ng-click="addItem()">Add to list</button>
     </ion-content>
 </ion-view>
 
@@ -11,74 +77,9 @@
     <ion-content>
         <div id="AddItem">
             <h3>Add Item</h3>
-            <input value="" type="text" placeholder="Name of Item" ng-model="newItem.name" ng-required="true">
-            <ul class="list">
-                <li class="item item-toggle">
-                    Monday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.monday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-                <li class="item item-toggle">
-                    Tuesday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.tuesday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-                <li class="item item-toggle">
-                    Wednesday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.wednesday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-                <li class="item item-toggle">
-                    Thursday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.thursday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-                <li class="item item-toggle">
-                    Friday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.friday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-                <li class="item item-toggle">
-                    Saturday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.saturday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-                <li class="item item-toggle">
-                    Sunday
-                    <label class="toggle toggle-balanced">
-                        <input type="checkbox" ng-model="newItem.sunday">
-                        <div class="track">
-                            <div class="handle"></div>
-                        </div>
-                    </label>
-                </li>
-            </ul>
-            <br />
-            <button ng-click="addItem()">Add to list</button>
+            
+            
+            
         </div>
         <div id="UncheckedList">
             <h4>Unchecked:</h4>

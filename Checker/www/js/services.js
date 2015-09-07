@@ -4,13 +4,15 @@ angular.module('starter.services', [])
         id: 1,
         name: 'Ben Sparrow',
         lastText: 'You on your way?',
-        face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png'
+        face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png',
+        monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false
     }];
     var addTask = {
         id: 0,
         name: 'Add new',
         lastText: 'Click to add new',
-        face: 'https://cdn3.iconfinder.com/data/icons/line/36/add-64.png'
+        face: 'https://cdn3.iconfinder.com/data/icons/line/36/add-64.png',
+        monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false
     };
 
     return {
