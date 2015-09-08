@@ -5,12 +5,17 @@ angular.module('starter.controllers', [])
 })
 .controller('ChatsCtrl', function ($scope, Chats) {
     $scope.chats = Chats.allWithNew();
-    $scope.remove = function (chat) {
-        Chats.remove(chat);
-    }
 })
-.controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
+.controller('ChatDetailCtrl', function ($scope, $state, $stateParams, Chats) {
     $scope.chat = Chats.get($stateParams.chatId);
+    $scope.remove = function (chat) {
+        //Chats.remove(chat);
+        $state.go('tab.chats');
+    };
+    $scope.save = function (chat) {
+        console.log("save");
+        debugger;
+    };
 })
 .controller('AccountCtrl', function ($scope) {
     $scope.settings = {

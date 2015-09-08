@@ -1,8 +1,14 @@
 ﻿<ion-view view-title="{{chat.name}}">
     <ion-content class="padding">
-        <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-        <p>{{chat.lastText}}</p>
-        <input value="" type="text" placeholder="Name of Item" ng-model="chat.name" ng-required="true">
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="What will you want to do?" ng-model="chat.name" ng-required="true">
+            </label>
+            <label class="item item-input">
+                <textarea placeholder="Comments" ng-model="chat.lastText"></textarea>
+            </label>
+        </div>
+        <p>When?</p>
         <ul class="list">
             <li class="item item-toggle">
                 Monday
@@ -69,28 +75,7 @@
             </li>
         </ul>
         <br />
-        <button ng-click="addItem()">Add to list</button>
+        <button class="button button-block icon-left ion-android-checkmark-circle button-positive" ng-click="save(chat)">Save</button>
+        <button class="button button-block icon-left ion-ios-trash-outline button-assertive" ng-click="remove(chat)">Remove</button>
     </ion-content>
 </ion-view>
-
-<!--<ion-view view-title="Tasks">
-    <ion-content>
-        <div id="AddItem">
-            <h3>Add Item</h3>
-            
-            
-            
-        </div>
-        <div id="UncheckedList">
-            <h4>Unchecked:</h4>
-            <table>
-                <tr ng-repeat="item in items" class="item-unchecked">
-                    <td><b>name:</b> {{item.name}} -</td>
-                    <td>
-                        <button ng-click="removeItem($index)">remove</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </ion-content>
-</ion-view>-->

@@ -2,10 +2,10 @@ angular.module('starter.services', [])
 .factory('Chats', function () {
     var chats = [{
         id: 1,
-        name: 'Ben Sparrow',
+        name: 'Do morning exercise',
         lastText: 'You on your way?',
         face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png',
-        monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false
+        monday: true, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: true
     }];
     var addTask = {
         id: 0,
