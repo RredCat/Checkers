@@ -16,10 +16,15 @@ angular.module('starter.services', [])
     };
 
     return {
+        allWithNew: function () {
+            //var tasks = localStorage.getItem(m_Name) || [];
+            var tasks = chats.slice();
+            tasks.splice(0, 0, addTask);
+            return tasks;
+        },
         all: function () {
             //var tasks = localStorage.getItem(m_Name) || [];
-            var tasks = chats || [];
-            tasks.splice(0, 0, addTask);
+            var tasks = chats.slice();
             return tasks;
         },
         add: function (task) {

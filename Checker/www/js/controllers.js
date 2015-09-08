@@ -1,8 +1,10 @@
 angular.module('starter.controllers', [])
 
-.controller('CheckCtrl', function ($scope) { })
+.controller('CheckCtrl', function ($scope, Chats) {
+    $scope.tasks = Chats.all();
+})
 .controller('ChatsCtrl', function ($scope, Chats) {
-    $scope.chats = Chats.all();
+    $scope.chats = Chats.allWithNew();
     $scope.remove = function (chat) {
         Chats.remove(chat);
     }
