@@ -7,7 +7,13 @@ angular.module('starter.controllers', [])
     $scope.chats = Chats.allWithNew();
 })
 .controller('ChatDetailCtrl', function ($scope, $state, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
+    var id = $stateParams.chatId;
+    $scope.isNew = "0" == id;
+    $scope.chat = Chats.get(id);
+    $scope.i21n = $scope.isNew
+    ? { remove: "Cansel", save: "Create" }
+    : { remove: "Remove", save: "Save" };
+
     $scope.remove = function (chat) {
         //Chats.remove(chat);
         $state.go('tab.chats');
