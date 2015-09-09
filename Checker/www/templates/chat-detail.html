@@ -8,73 +8,79 @@
                 <textarea placeholder="Comments" ng-model="chat.lastText"></textarea>
             </label>
         </div>
-        <p>When?</p>
-        <ul class="list">
-            <li class="item item-toggle">
-                Monday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.monday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Tuesday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.tuesday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Wednesday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.wednesday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Thursday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.thursday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Friday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.friday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Saturday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.saturday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-            <li class="item item-toggle">
-                Sunday
-                <label class="toggle toggle-balanced">
-                    <input type="checkbox" ng-model="chat.sunday">
-                    <div class="track">
-                        <div class="handle"></div>
-                    </div>
-                </label>
-            </li>
-        </ul>
-        <br />
+        <div class="row">
+            <div class="col"><li class="item item-toggle">Mon
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.monday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="col"><li class="item item-toggle">Tue
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.tuesday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><li class="item item-toggle">Wed
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.wednesday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="col"><li class="item item-toggle">Thu
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.thursday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><li class="item item-toggle">Fri
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.friday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="col">
+                <li class="item item-toggle">Sat
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.saturday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <li class="item item-toggle">Sunday
+                    <label class="toggle toggle-royal">
+                        <input type="checkbox" ng-model="chat.sunday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
         <button class="button button-block icon-left ion-android-checkmark-circle button-positive" ng-click="save(chat)">{{i21n.save}}</button>
         <button class="button button-block icon-left ion-ios-trash-outline button-assertive" ng-click="remove(chat)">{{i21n.remove}}</button>
     </ion-content>

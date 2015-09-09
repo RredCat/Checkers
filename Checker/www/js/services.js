@@ -63,6 +63,8 @@ angular.module('starter.services', [])
 
             var copy = JSON.parse(JSON.stringify(zeroTask));
             copy.id = getNewId();
+            copy.name = "";
+            copy.lastText = "";
             return copy;
         }
     };

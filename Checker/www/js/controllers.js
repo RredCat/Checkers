@@ -19,8 +19,7 @@ angular.module('starter.controllers', [])
         $state.go('tab.chats');
     };
     $scope.save = function (chat) {
-        console.log("save");
-        debugger;
+        $state.go('tab.chats');
     };
 })
 .controller('AccountCtrl', function ($scope) {
