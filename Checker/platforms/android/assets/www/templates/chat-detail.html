@@ -1,14 +1,87 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
-  </ion-content>
+﻿<ion-view view-title="{{chat.name}}">
+    <ion-content class="padding">
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="What will you want to do?" ng-model="chat.name" ng-required="true">
+            </label>
+            <label class="item item-input">
+                <textarea placeholder="Comments" ng-model="chat.lastText"></textarea>
+            </label>
+        </div>
+        <div class="row">
+            <div class="col"><li class="item item-toggle">Mon
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.monday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="col"><li class="item item-toggle">Tue
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.tuesday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><li class="item item-toggle">Wed
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.wednesday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="col"><li class="item item-toggle">Thu
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.thursday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"><li class="item item-toggle">Fri
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.friday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+            <div class="col">
+                <li class="item item-toggle">Sat
+                    <label class="toggle toggle-balanced">
+                        <input type="checkbox" ng-model="chat.saturday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <li class="item item-toggle">Sunday
+                    <label class="toggle toggle-royal">
+                        <input type="checkbox" ng-model="chat.sunday">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+            </div>
+        </div>
+        <button class="button button-block icon-left ion-android-checkmark-circle button-positive" ng-click="save(chat)">{{i21n.save}}</button>
+        <button class="button button-block icon-left ion-ios-trash-outline button-assertive" ng-click="remove(chat)">{{i21n.remove}}</button>
+    </ion-content>
 </ion-view>
