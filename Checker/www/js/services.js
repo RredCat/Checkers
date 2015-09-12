@@ -60,10 +60,6 @@ angular.module('starter.services', [])
                 tasks.splice(0, 0, zeroTask);
                 return tasks;
             },
-            all: function() {
-                var tasks = getRawDataList();
-                return tasks;
-            },
             add: function(task) {
                 var tasks = chats;
                 tasks.splice(tasks.indexOf(task), 1);
@@ -93,7 +89,24 @@ angular.module('starter.services', [])
         var tasks = null;
         var getTaskList = function() {
             if (null == tasks) {
-                tasks = localStorage.getItem("rawDataList") || [];
+                tasks = [];
+                var rawTasks = localStorage.getItem("rawDataList") || [];
+                debugger; //what about current week day?
+                var currentWeekDay = null;
+
+                for (var i in rawTasks) {
+                    var raw = rawTasks[i];
+
+                    if (raw.weeks[currentWeekDay]) {
+                        var task = {
+                            id: raw.id,
+                            name: raw.name,
+                            lastText: raw.lastText,
+                            check:false
+                        };
+                        tasks.splice(tasks.indexOf(task), 1);
+                    }
+                }
             }
 
             return tasks;
@@ -105,10 +118,12 @@ angular.module('starter.services', [])
                 return tasks;
             },
             check: function (task) {
+                //save
                 debugger; //not implemented yet
             },
-            unCheck: function(task) {
-                debugger;//not implemented yet
+            unCheck: function (task) {
+                //save again
+                debugger; //not implemented yet
             }
         };
     });
