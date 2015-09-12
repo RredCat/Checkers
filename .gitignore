@@ -1,3 +1,4 @@
 *.suo
 Checker/bin
 Checker/bld
+Checker/platforms

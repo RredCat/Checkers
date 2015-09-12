@@ -87,17 +87,20 @@ angular.module('starter.services', [])
     })
     .factory('Tasks', function() {
         var tasks = null;
+        var getTodayWeekDay = function () {
+            debugger;
+            return null;
+        }
         var getTaskList = function() {
             if (null == tasks) {
                 tasks = [];
                 var rawTasks = localStorage.getItem("rawDataList") || [];
-                debugger; //what about current week day?
-                var currentWeekDay = null;
+                var todayWeekDay = getTodayWeekDay();
 
                 for (var i in rawTasks) {
                     var raw = rawTasks[i];
 
-                    if (raw.weeks[currentWeekDay]) {
+                    if (raw.weeks[todayWeekDay]) {
                         var task = {
                             id: raw.id,
                             name: raw.name,
