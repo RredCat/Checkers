@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
-.controller('CheckCtrl', function ($scope, Chats) {
-    $scope.tasks = Chats.all();
+.controller('CheckCtrl', function ($scope, Tasks) {
+    $scope.tasks = Tasks.all();
 })
 .controller('ChatsCtrl', function ($scope, Chats) {
     $scope.chats = Chats.allWithNew();
