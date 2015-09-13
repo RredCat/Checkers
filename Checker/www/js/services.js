@@ -48,10 +48,10 @@ angular.module('starter.services', [])
         };
         var getTasks = function() {
             if (null == chats) {
-                chats = localStorage.getItem("rawDataList") || [];
+                chats = localStorage.getItem('rawDataList') || [];
             }
             //return chats.slice();
-            return chats();
+            return chats;
         }
 
         return {
@@ -79,39 +79,49 @@ angular.module('starter.services', [])
 
                 var copy = JSON.parse(JSON.stringify(zeroTask));
                 copy.id = getNewId();
-                copy.name = "";
-                copy.lastText = "";
+                copy.name = '';
+                copy.lastText = '';
                 return copy;
             }
         };
     })
     .factory('Tasks', function() {
         var tasks = null;
-        var getTodayWeekDay = function () {
+        var getTodayWeekDay = function() {
             debugger;
             return null;
-        }
+        };
+        var getTodayDateStr = function() {
+            debugger;
+            return null;
+        };
         var getTaskList = function() {
-            if (null == tasks) {
-                tasks = [];
-                var rawTasks = localStorage.getItem("rawDataList") || [];
-                var todayWeekDay = getTodayWeekDay();
+            if (null != tasks) return tasks;
 
-                for (var i in rawTasks) {
-                    var raw = rawTasks[i];
+            var key = getTodayDateStr();
+            tasks = localStorage.getItem(key);
 
-                    if (raw.weeks[todayWeekDay]) {
-                        var task = {
-                            id: raw.id,
-                            name: raw.name,
-                            lastText: raw.lastText,
-                            check:false
-                        };
-                        tasks.splice(tasks.indexOf(task), 1);
-                    }
+            if (null != tasks) return tasks;
+
+            tasks = [];
+            var rawTasks = localStorage.getItem('rawDataList') || [];
+            var todayWeekDay = getTodayWeekDay();
+
+            for (var i in rawTasks) {
+                var raw = rawTasks[i];
+
+                if (raw[todayWeekDay]) {
+                    var task = {
+                        id: raw.id,
+                        name: raw.name,
+                        lastText: raw.lastText,
+                        checked: false
+                    };
+                    tasks.splice(tasks.indexOf(task), 1);
                 }
             }
 
+            localStorage.setItem(key, tasks);
             return tasks;
         }
 
@@ -120,11 +130,11 @@ angular.module('starter.services', [])
                 var tasks = getTaskList();
                 return tasks;
             },
-            check: function (task) {
+            check: function(task) {
                 //save
                 debugger; //not implemented yet
             },
-            unCheck: function (task) {
+            unCheck: function(task) {
                 //save again
                 debugger; //not implemented yet
             }
