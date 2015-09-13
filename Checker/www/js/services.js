@@ -53,6 +53,16 @@ angular.module('starter.services', [])
             //return chats.slice();
             return chats;
         }
+        var save = function() {
+            localStorage.setItem('rawDataList', chats );
+        }
+        var createNewEmptyTask = function() {
+            var copy = JSON.parse(JSON.stringify(zeroTask));
+            copy.id = getNewId();
+            copy.name = '';
+            copy.lastText = '';
+            return copy;
+        }
 
         return {
             allWithNew: function() {
@@ -61,12 +71,12 @@ angular.module('starter.services', [])
                 return tasks;
             },
             add: function(task) {
-                var tasks = chats;
-                tasks.splice(tasks.indexOf(task), 1);
-                save(tasks);
+                chats.splice(chats.indexOf(task), 1);
+                save();
             },
             remove: function(chat) {
                 chats.splice(chats.indexOf(chat), 1);
+                save();
             },
             get: function(chatId) {
                 var id = parseInt(chatId);
@@ -77,11 +87,7 @@ angular.module('starter.services', [])
                     }
                 }
 
-                var copy = JSON.parse(JSON.stringify(zeroTask));
-                copy.id = getNewId();
-                copy.name = '';
-                copy.lastText = '';
-                return copy;
+                return createNewEmptyTask();
             }
         };
     })
@@ -124,19 +130,23 @@ angular.module('starter.services', [])
             localStorage.setItem(key, tasks);
             return tasks;
         }
+        var save = function() {
+            var key = getTodayDateStr();
+            localStorage.setItem(key, tasks);
+        };
 
         return {
             all: function() {
                 var tasks = getTaskList();
                 return tasks;
             },
-            check: function(task) {
-                //save
-                debugger; //not implemented yet
+            check: function (task) {
+                task.checked = true;
+                save();
             },
-            unCheck: function(task) {
-                //save again
-                debugger; //not implemented yet
+            unCheck: function (task) {
+                task.checked = false;
+                save();
             }
         };
     });
