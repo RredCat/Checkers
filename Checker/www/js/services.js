@@ -94,12 +94,26 @@ angular.module('starter.services', [])
     .factory('Tasks', function() {
         var tasks = null;
         var getTodayWeekDay = function() {
-            debugger;
-            return null;
+            var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var date = new Date();
+            var day = date.getDay();
+            return weekday[day];
         };
-        var getTodayDateStr = function() {
-            debugger;
-            return null;
+        var getTodayDateStr = function () {
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+
+            if (mm < 10) {
+                mm = '0' + mm;
+            }
+
+            return dd + '/' + mm + '/' + yyyy;
         };
         var getTaskList = function() {
             if (null != tasks) return tasks;
