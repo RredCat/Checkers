@@ -2,6 +2,10 @@ angular.module('starter.controllers', [])
 
 .controller('CheckCtrl', function ($scope, Tasks) {
     $scope.tasks = Tasks.all();
+
+    $scope.onCheckedChange = function () {
+        Tasks.save();
+    };
 })
 .controller('ChatsCtrl', function ($scope, Chats) {
     $scope.chats = Chats.allWithNew();
@@ -27,22 +31,4 @@ angular.module('starter.controllers', [])
         enableFriends: true
     };
 });
-//$scope.items = [];
-//$scope.newItem = { name: "", monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
-
-//$scope.addItem = function () {
-//    var name = $scope.newItem.name;
-
 //    if (typeof name === 'undefined' || '' == name) return;
-
-//    $scope.items.push($scope.newItem);
-//    $scope.newItem = { name: "", monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
-
-//    //var initWeek = function () {//Make cycle in view. But later..
-//    //    return {monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false };
-//    //};
-//    // Add validation checker!! But later..
-//};
-//$scope.removeItem = function (index) {
-//    $scope.items.splice(index, 1);
-//};

@@ -9,7 +9,7 @@ angular.module('starter.services', [])
                 face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png',
                 monday: true,
                 tuesday: false,
-                wednesday: false,
+                wednesday: true,
                 thursday: false,
                 friday: false,
                 saturday: false,
@@ -48,13 +48,14 @@ angular.module('starter.services', [])
         };
         var getTasks = function() {
             if (null == chats) {
-                chats = localStorage.getItem('rawDataList') || [];
+                chats = JSON.parse(localStorage.getItem('rawDataList')) || [];
             }
-            //return chats.slice();
-            return chats;
+
+            return chats.slice();
+            //return chats;
         }
         var save = function() {
-            localStorage.setItem('rawDataList', chats );
+            localStorage.setItem('rawDataList', JSON.stringify(chats) );
         }
         var createNewEmptyTask = function() {
             var copy = JSON.parse(JSON.stringify(zeroTask));
@@ -68,6 +69,7 @@ angular.module('starter.services', [])
             allWithNew: function() {
                 var tasks = getTasks();
                 tasks.splice(0, 0, zeroTask);
+                save();
                 return tasks;
             },
             add: function(task) {
@@ -94,7 +96,7 @@ angular.module('starter.services', [])
     .factory('Tasks', function() {
         var tasks = null;
         var getTodayWeekDay = function() {
-            var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
             var date = new Date();
             var day = date.getDay();
             return weekday[day];
@@ -115,16 +117,19 @@ angular.module('starter.services', [])
 
             return dd + '/' + mm + '/' + yyyy;
         };
+        var isNull = function (value) {
+            return null == value || '' == value;
+        };
         var getTaskList = function() {
-            if (null != tasks) return tasks;
+            if (!isNull(tasks)) return tasks;
 
             var key = getTodayDateStr();
-            tasks = localStorage.getItem(key);
+            tasks = JSON.parse(localStorage.getItem(key));
 
-            if (null != tasks) return tasks;
+            if (!isNull(tasks)) return tasks;
 
             tasks = [];
-            var rawTasks = localStorage.getItem('rawDataList') || [];
+            var rawTasks = JSON.parse(localStorage.getItem('rawDataList')) || [];
             var todayWeekDay = getTodayWeekDay();
 
             for (var i in rawTasks) {
@@ -137,29 +142,24 @@ angular.module('starter.services', [])
                         lastText: raw.lastText,
                         checked: false
                     };
-                    tasks.splice(tasks.indexOf(task), 1);
+                    tasks.push(task);
                 }
             }
 
-            localStorage.setItem(key, tasks);
+            save(key);
             return tasks;
         }
-        var save = function() {
-            var key = getTodayDateStr();
-            localStorage.setItem(key, tasks);
+        var save = function (key) {
+            key = key||getTodayDateStr();
+            localStorage.setItem(key, JSON.stringify(tasks));
         };
 
         return {
             all: function() {
-                var tasks = getTaskList();
-                return tasks;
+                var allTasks = getTaskList();
+                return allTasks;
             },
-            check: function (task) {
-                task.checked = true;
-                save();
-            },
-            unCheck: function (task) {
-                task.checked = false;
+            save: function () {
                 save();
             }
         };
