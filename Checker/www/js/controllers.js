@@ -19,10 +19,19 @@ angular.module('starter.controllers', [])
     : { remove: "Remove", save: "Save" };
 
     $scope.remove = function (chat) {
-        //Chats.remove(chat);
+        if (!$scope.isNew) {
+            Chats.remove(chat);
+        }
+
         $state.go('tab.chats');
     };
     $scope.save = function (chat) {
+        if ($scope.isNew) {
+            Chats.add(add);
+        } else {
+            Chats.save(chat);
+        }
+
         $state.go('tab.chats');
     };
 })

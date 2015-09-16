@@ -46,41 +46,39 @@ angular.module('starter.services', [])
 
             return id;
         };
-        var getTasks = function() {
+        var getTasks = function () {
             if (null == chats) {
                 chats = JSON.parse(localStorage.getItem('rawDataList')) || [];
             }
 
-            return chats.slice();
-            //return chats;
-        }
-        var save = function() {
-            localStorage.setItem('rawDataList', JSON.stringify(chats) );
-        }
-        var createNewEmptyTask = function() {
+            //return chats.slice();
+            return chats;
+        };
+        var createNewEmptyTask = function () {
             var copy = JSON.parse(JSON.stringify(zeroTask));
             copy.id = getNewId();
             copy.name = '';
             copy.lastText = '';
             return copy;
-        }
+        };
 
         return {
-            allWithNew: function() {
+            allWithNew: function () {
                 var tasks = getTasks();
-                tasks.splice(0, 0, zeroTask);
+                //tasks.splice(0, 0, zeroTask);
                 save();
                 return tasks;
             },
-            add: function(task) {
-                chats.splice(chats.indexOf(task), 1);
+            add: function (task) {
+                chats.push(task);
                 save();
             },
-            remove: function(chat) {
-                chats.splice(chats.indexOf(chat), 1);
+            remove: function (task) {
+                var index = chats.indexOf(task);
+                chats.splice(index, 1);
                 save();
             },
-            get: function(chatId) {
+            get: function (chatId) {
                 var id = parseInt(chatId);
 
                 for (var i = 0; i < chats.length; i++) {
@@ -90,6 +88,9 @@ angular.module('starter.services', [])
                 }
 
                 return createNewEmptyTask();
+            },
+            save: function () {
+                localStorage.setItem('rawDataList', JSON.stringify(chats));
             }
         };
     })
