@@ -67,11 +67,10 @@ angular.module('starter.services', [])
         };
         var save = function () {
             var tasks = chats.slice();
-
             var index = tasks.indexOf(zeroTask);
 
             if (-1 != index) {
-                tasks.splice(index, 1);
+                tasks.shift();
             }
 
             localStorage.setItem('rawDataList', JSON.stringify(tasks));
