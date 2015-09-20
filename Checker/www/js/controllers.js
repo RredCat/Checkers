@@ -39,5 +39,6 @@ angular.module('starter.controllers', [])
     $scope.settings = {
         enableFriends: true
     };
+    localStorage.clear();
 });
 //    if (typeof name === 'undefined' || '' == name) return;

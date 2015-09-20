@@ -1,5 +1,5 @@
 angular.module('starter.services', [])
-    .factory('Chats', function() {
+    .factory('Chats', function () {
         //var chats = null;
         var chats = [
             {
@@ -29,14 +29,14 @@ angular.module('starter.services', [])
             saturday: false,
             sunday: false
         };
-        var contains = function(id) {
+        var contains = function (id) {
             for (var i in chats) {
                 if (chats[i].id === id) return true;
             }
 
             return false;
         };
-        var getNewId = function() {
+        var getNewId = function () {
             var min = 1, max = 32767;
             var id;
 
@@ -51,9 +51,13 @@ angular.module('starter.services', [])
                 chats = JSON.parse(localStorage.getItem('rawDataList')) || [];
             }
 
-            //return chats.slice();
+            if (-1 == chats.indexOf(zeroTask)) {
+                chats.unshift(zeroTask);
+            }
+
             return chats;
         };
+
         var createNewEmptyTask = function () {
             var copy = JSON.parse(JSON.stringify(zeroTask));
             copy.id = getNewId();
@@ -61,11 +65,25 @@ angular.module('starter.services', [])
             copy.lastText = '';
             return copy;
         };
+        var save = function () {
+            var tasks = chats.slice();
+
+            var index = tasks.indexOf(zeroTask);
+
+            if (-1 != index) {
+                tasks.splice(index, 1);
+            }
+
+            localStorage.setItem('rawDataList', JSON.stringify(tasks));
+        };
 
         return {
+            save: function () {
+                save();
+            },
             allWithNew: function () {
                 var tasks = getTasks();
-                //tasks.splice(0, 0, zeroTask);
+
                 save();
                 return tasks;
             },
@@ -88,15 +106,12 @@ angular.module('starter.services', [])
                 }
 
                 return createNewEmptyTask();
-            },
-            save: function () {
-                localStorage.setItem('rawDataList', JSON.stringify(chats));
             }
         };
     })
-    .factory('Tasks', function() {
+    .factory('Tasks', function () {
         var tasks = null;
-        var getTodayWeekDay = function() {
+        var getTodayWeekDay = function () {
             var weekday = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
             var date = new Date();
             var day = date.getDay();
@@ -121,7 +136,7 @@ angular.module('starter.services', [])
         var isNull = function (value) {
             return null == value || '' == value;
         };
-        var getTaskList = function() {
+        var getTaskList = function () {
             if (!isNull(tasks)) return tasks;
 
             var key = getTodayDateStr();
@@ -151,12 +166,12 @@ angular.module('starter.services', [])
             return tasks;
         }
         var save = function (key) {
-            key = key||getTodayDateStr();
+            key = key || getTodayDateStr();
             localStorage.setItem(key, JSON.stringify(tasks));
         };
 
         return {
-            all: function() {
+            all: function () {
                 var allTasks = getTaskList();
                 return allTasks;
             },

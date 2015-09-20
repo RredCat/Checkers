@@ -56,5 +56,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         }
     });
-    $urlRouterProvider.otherwise('/tab/chats');
+    $urlRouterProvider.otherwise('/tab/account');
 });
