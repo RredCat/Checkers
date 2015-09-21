@@ -1,7 +1,7 @@
 angular.module('starter.services', [])
     .factory('Chats', function () {
-        //var chats = null;
-        var chats = [
+        var chats = null;
+        var chats1 = [
             {
                 id: 1,
                 name: 'Do morning exercise',
@@ -57,7 +57,6 @@ angular.module('starter.services', [])
 
             return chats;
         };
-
         var createNewEmptyTask = function () {
             var copy = JSON.parse(JSON.stringify(zeroTask));
             copy.id = getNewId();
@@ -99,7 +98,8 @@ angular.module('starter.services', [])
                 var id = parseInt(chatId);
 
                 for (var i = 0; i < chats.length; i++) {
-                    if (chats[i].id === id) {
+                    var chat = chats[i];
+                    if (chat.id === id && chat!==zeroTask) {
                         return chats[i];
                     }
                 }
@@ -135,7 +135,11 @@ angular.module('starter.services', [])
         var isNull = function (value) {
             return null == value || '' == value;
         };
-        var getTaskList = function () {
+        var save = function (key) {
+            key = key || getTodayDateStr();
+            localStorage.setItem(key, JSON.stringify(tasks));
+        };
+        var getTaskList = function() {
             if (!isNull(tasks)) return tasks;
 
             var key = getTodayDateStr();
@@ -163,10 +167,6 @@ angular.module('starter.services', [])
 
             save(key);
             return tasks;
-        }
-        var save = function (key) {
-            key = key || getTodayDateStr();
-            localStorage.setItem(key, JSON.stringify(tasks));
         };
 
         return {
