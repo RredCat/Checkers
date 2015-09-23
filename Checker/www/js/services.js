@@ -1,6 +1,21 @@
 angular.module('starter.services', [])
     .factory('Chats', function () {
         var chats = null;
+        var chats1 = [
+            {
+                id: 1,
+                name: 'Do morning exercise',
+                lastText: 'You on your way?',
+                face: 'https://pbs.twimg.com/profile_images/514549811765211136/9SgAuHeY.png',
+                monday: true,
+                tuesday: false,
+                wednesday: true,
+                thursday: false,
+                friday: false,
+                saturday: false,
+                sunday: true
+            }
+        ];
         var zeroTask = {
             id: 0,
             name: 'Add new',
@@ -31,14 +46,16 @@ angular.module('starter.services', [])
 
             return id;
         };
-        var initTasks = function () {
+        var getTasks = function () {
             if (null == chats) {
                 chats = JSON.parse(localStorage.getItem('rawDataList')) || [];
             }
 
-            if (-1 === chats.indexOf(zeroTask)) {
+            if (-1 == chats.indexOf(zeroTask)) {
                 chats.unshift(zeroTask);
             }
+
+            return chats;
         };
         var createNewEmptyTask = function () {
             var copy = JSON.parse(JSON.stringify(zeroTask));
@@ -51,7 +68,7 @@ angular.module('starter.services', [])
             var tasks = chats.slice();
             var index = tasks.indexOf(zeroTask);
 
-            if (-1 !== index) {
+            if (-1 != index) {
                 tasks.shift();
             }
 
@@ -59,10 +76,14 @@ angular.module('starter.services', [])
         };
 
         return {
+            save: function () {
+                save();
+            },
             allWithNew: function () {
-                initTasks();
+                var tasks = getTasks();
+
                 //save();
-                return chats;
+                return tasks;
             },
             add: function (task) {
                 chats.push(task);
@@ -73,13 +94,8 @@ angular.module('starter.services', [])
                 chats.splice(index, 1);
                 save();
             },
-            save: function () {
-                save();
-            },
             get: function (chatId) {
                 var id = parseInt(chatId);
-
-                if (0 === id) return createNewEmptyTask();
 
                 for (var i = 0; i < chats.length; i++) {
                     var chat = chats[i];
