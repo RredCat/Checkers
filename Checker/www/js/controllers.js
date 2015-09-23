@@ -12,7 +12,7 @@ angular.module('starter.controllers', [])
 })
 .controller('ChatDetailCtrl', function ($scope, $state, $stateParams, Chats) {
     var id = $stateParams.chatId;
-    $scope.isNew = "0" == id;
+    $scope.isNew = "0" === id;
     $scope.chat = Chats.get(id);
     $scope.i21n = $scope.isNew ? { save: "Create" } : { save: "Save" };
 
@@ -37,6 +37,6 @@ angular.module('starter.controllers', [])
     $scope.settings = {
         enableFriends: true
     };
-    localStorage.clear();
+    //localStorage.clear();
 });
 //    if (typeof name === 'undefined' || '' == name) return;
