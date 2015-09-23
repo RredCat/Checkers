@@ -82,7 +82,7 @@ angular.module('starter.services', [])
             allWithNew: function () {
                 var tasks = getTasks();
 
-                save();
+                //save();
                 return tasks;
             },
             add: function (task) {
