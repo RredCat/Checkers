@@ -14,7 +14,9 @@ angular.module('starter.controllers', [])
     var id = $stateParams.chatId;
     $scope.isNew = "0" == id;
     $scope.chat = Chats.get(id);
-    $scope.i21n = $scope.isNew ? { save: "Create" } : { save: "Save" };
+    $scope.i21n = $scope.isNew
+    ? { remove: "Cansel", save: "Create" }
+    : { remove: "Remove", save: "Save" };
 
     $scope.remove = function (chat) {
         if (!$scope.isNew) {
@@ -25,7 +27,7 @@ angular.module('starter.controllers', [])
     };
     $scope.save = function (chat) {
         if ($scope.isNew) {
-            Chats.add(chat);
+            Chats.add(add);
         } else {
             Chats.save(chat);
         }
