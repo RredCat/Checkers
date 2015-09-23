@@ -16,11 +16,11 @@ angular.module('starter.controllers', [])
     $scope.chat = Chats.get(id);
     $scope.i21n = $scope.isNew ? { save: "Create" } : { save: "Save" };
 
-    $scope.cancel = function (chat) {
-        $state.go('tab.chats');
-    };
-    $scope.delete = function (chat) {
-        Chats.remove(chat);
+    $scope.remove = function (chat) {
+        if (!$scope.isNew) {
+            Chats.remove(chat);
+        }
+
         $state.go('tab.chats');
     };
     $scope.save = function (chat) {
