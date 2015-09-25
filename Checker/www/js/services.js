@@ -41,7 +41,8 @@ angular.module('starter.services', [])
             }
         };
         var createNewEmptyTask = function () {
-            var copy = JSON.parse(JSON.stringify(zeroTask));
+            //var copy = JSON.parse(JSON.stringify(zeroTask));
+            var copy = JSON.parse(angular.toJson(zeroTask));
             copy.id = getNewId();
             copy.name = '';
             copy.lastText = '';
