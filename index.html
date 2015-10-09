@@ -72,8 +72,6 @@
 	<noscript>JavaScript must be enabled in order for you to use <i>Online Json Parser</i>.<br/>It seems JavaScript is either disabled or not supported in your browser.<br/>Enable JavaScript by changing your browser options, then <a href='.'>try again</a>.</noscript>
 </body>
 <script type='text/javascript'>
-var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
-if(!is_chrome) alert('Sorry, but this page looks OK only in Chrome.')
 	document.querySelector('button').addEventListener('click', function(){
 		var text = document.querySelector('#text').value;
 		var textList = text.split('\n');
