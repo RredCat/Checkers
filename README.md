@@ -1,2 +1,2 @@
 # Chekers
-Check your task in other way.
+Check your tasks in other way.
