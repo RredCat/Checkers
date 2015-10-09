@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang='en'>
+<head>
+	<meta charset='utf-8'/>
+	<title>Text to Json Array of String Parser Online</title>
+	<meta name='keywords' content='JSON,javascript object notation,parser,array,parseur,online,tool,free,javascript,tree,парсер,جسون'/>
+	<meta name='description' content='Parse your text to JSON array of string. Processing is done locally: no data send to server.'/>
+	<meta name='author' content='Taras Romanyk'/>
+	<meta name='contact' content='rredcat@gmail.com'>
+	<style>    
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	html,
+	body {
+		height: 100%;
+		background: #FFF;
+		color: #8AC007;
+		text-align: center
+	}
+	textarea {
+		width:100%;
+		height:100%; 
+		box-sizing: border-box;         /* For IE and modern versions of Chrome */
+		-moz-box-sizing: border-box;    /* For Firefox                          */
+		-webkit-box-sizing: border-box; /* For Safari                           */
+	}
+	button {
+		background-color:#8AC007;
+		border-bottom-color:#FFF;
+		border-bottom-style:none;
+		border-bottom-width:0px;
+		border-left-color:#FFF;
+		border-left-style:none;
+		border-left-width:0px;
+		border-right-color:#FFF;
+		border-right-style:none;
+		border-right-width:0px;
+		border-top-color:#FFF;
+		border-top-style:none;
+		border-top-width:0px;
+		box-shadow:rgba(0, 0, 0, 0.12) 0px 1px 3px 0px, rgba(0, 0, 0, 0.24) 0px 1px 2px 0px;
+		color:#FFF;
+		cursor:pointer;
+		display:inline-block;
+		font-family:Verdana,sans-serif;
+		font-size:15px;
+		padding-bottom:6px;
+		padding-left:16px;
+		padding-right:16px;
+		padding-top:6px;
+		text-align:center;
+		vertical-align:middle;
+		white-space:nowrap;
+	}	
+	</style>
+</head>
+<body>
+	<main display='table'>
+		<header display='table-row' style='height:30px'>
+			<h3>Each line of text will be converted to JSON array of string.</h3>
+		</header>
+		<section display='table-row'>
+			<div display='table-cell'><textarea id='text' rows='10' spellcheck='false'></textarea></div>
+			<div display='table-cell'><button>Convert text to JSON</button></div>
+			<div display='table-cell'><textarea id='result' spellcheck='false'></textarea>
+			</div>
+		</section>
+		<footer display='table-row'></footer>
+	</main>
+	<noscript>JavaScript must be enabled in order for you to use <i>Online Json Parser</i>.<br/>It seems JavaScript is either disabled or not supported in your browser.<br/>Enable JavaScript by changing your browser options, then <a href='.'>try again</a>.</noscript>
+</body>
+<script type='text/javascript'>
+var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
+if(!is_chrome) alert('Sorry, but this page looks OK only in Chrome.')
+	document.querySelector('button').addEventListener('click', function(){
+		var text = document.querySelector('#text').value;
+		var textList = text.split('\n');
+		var result = '{"YourStringArray": [';
+
+		for (var i in textList) {
+			if(0!=i){
+				result += ',';
+			}
+
+			result += '"'+textList[i]+'"';
+		}
+
+		result += ']}';
+		document.querySelector('#result').value = result;
+		document.querySelector('footer').innerHTML = 'Validate and format result <a href="http://jsonlint.com/" target="_blank">here</a>.';
+		console.log(result);
+	});
+</script>
+</html>
